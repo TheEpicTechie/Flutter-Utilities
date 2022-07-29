@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:narena/screens/home_page.dart';
-import 'package:narena/screens/login_page.dart';
+// ===================================================================================
+import 'package:....../home_page.dart';
+import 'package:....../login_page.dart';
 
+
+// 
+// ===================================================================================
 class AuthService {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
   // ==================================================================================
@@ -44,7 +48,9 @@ class AuthService {
   // ==================================================================================
 
   signOut() async {
+    // This line is mandatory for Android apps,..
     await _googleSignIn.signOut();
+    // This line is enough if you build only for web,..
     await FirebaseAuth.instance.signOut();
   }
 }
